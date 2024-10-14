@@ -120,41 +120,121 @@
     await fetchUsers();
   });
 </script>
+<style>
+body {  
+  font-family: Arial, sans-serif;  
+  margin: 20px;  
+}  
+  
+h1 {  
+  color: #333;  
+  margin-bottom: 10px;  
+  font-size: 25px;
+}  
+  
+ul {  
+  list-style: none;  
+  padding: 0;  
+  margin: 0;  
+}  
+  
+li {  
+  padding: 10px;  
+  border-bottom: 1px solid #ccc;  
+}  
+  
+li:last-child {  
+  border-bottom: none;  
+}  
+  
+span {  
+  display: inline-block;  
+  width: 150px;  
+  margin-right: 10px;  
+}  
+  
+button {  
+  background-color: #4CAF50;  
+  color: #fff;  
+  padding: 10px 20px;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+}  
+  
+button:hover {  
+  background-color: #3e8e41;  
+}  
+  
+form {  
+  margin-top: 20px;  
+}  
+  
+input[type="text"], input[type="email"] {  
+  width: 100%;  
+  padding: 10px;  
+  margin-bottom: 10px;  
+  border: 1px solid #ccc;  
+}  
+  
+input[type="submit"] {  
+  background-color: #4CAF50;  
+  color: #fff;  
+  padding: 10px 20px;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+}  
+  
+input[type="submit"]:hover {  
+  background-color: #3e8e41;  
+}  
+  
+#update-form {  
+  display: none;  
+}  
+  
+#update-form.show {  
+  display: block;  
+}
 
-<h1>Users</h1>
 
-<ul>
-  {#each users as user}
-    <li>
-      <span>{user.name}</span>
-      <span>{user.email}</span>
-      <button on:click={() => {
-        id = user.id;
-        name = user.name;
-        email = user.email;
-      }}>Edit</button>
-      <button on:click={() => {
-        id = user.id;
-        deleteUser();
-      }}>Delete</button>
-    </li>
-  {/each}
-</ul>
+</style>
 
-<!-- Create User Form -->
-<form on:submit|preventDefault={createUser}>
-  <input type="text" bind:value={name} placeholder="Name" required />
-  <input type="email" bind:value={email} placeholder="Email" required />
-  <button type="submit">Create</button>
-</form>
-
-<!-- Update User Form -->
-{#if id}
-  <h2>Edit User</h2>
-  <form on:submit|preventDefault={updateUser}>
-    <input type="hidden" bind:value={id} />
-    <input type="text" bind:value={name} placeholder="Name" required />
-    <input type="email" bind:value={email} placeholder="Email" required />
-    <button type="submit">Update</button>
-  </form>
+<h1 cl>Users</h1>  
+  
+<ul>  
+  {#each users as user}  
+   <li>  
+    <span>{user.name}</span>  
+    <span>{user.email}</span>  
+    <button on:click={() => {  
+      id = user.id;  
+      name = user.name;  
+      email = user.email;  
+    }}>Edit</button>  
+    <button on:click={() => {  
+      id = user.id;  
+      deleteUser();  
+    }}>Delete</button>  
+   </li>  
+  {/each}  
+</ul>  
+  
+<!-- Create User Form -->  
+<form on:submit|preventDefault={createUser}>  
+  <input type="text" bind:value={name} placeholder="Name" required />  
+  <input type="email" bind:value={email} placeholder="Email" required />  
+  <button type="submit">Create</button>  
+</form>  
+  
+<!-- Update User Form -->  
+{#if id}  
+  <h2>Edit User</h2>  
+  <form on:submit|preventDefault={updateUser} id="update-form" class="show">  
+   <input type="hidden" bind:value={id} />  
+   <input type="text" bind:value={name} placeholder="Name" required />  
+   <input type="email" bind:value={email} placeholder="Email" required />  
+   <button type="submit">Update</button>  
+  </form>  
 {/if}

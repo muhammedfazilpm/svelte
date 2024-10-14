@@ -65,6 +65,88 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+
+body {  
+  font-family: Arial, sans-serif;  
+  margin: 20px;  
+}  
+  
+h1 {  
+  color: #333;  
+  margin-bottom: 10px;  
+  font-size: 25px;
+}  
+  
+ul {  
+  list-style: none;  
+  padding: 0;  
+  margin: 0;  
+}  
+  
+li {  
+  padding: 10px;  
+  border-bottom: 1px solid #ccc;  
+}  
+  
+li:last-child {  
+  border-bottom: none;  
+}  
+  
+span {  
+  display: inline-block;  
+  width: 150px;  
+  margin-right: 10px;  
+}  
+  
+button {  
+  background-color: #4CAF50;  
+  color: #fff;  
+  padding: 10px 20px;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+}  
+  
+button:hover {  
+  background-color: #3e8e41;  
+}  
+  
+form {  
+  margin-top: 20px;  
+}  
+  
+input[type="text"], input[type="email"] {  
+  width: 100%;  
+  padding: 10px;  
+  margin-bottom: 10px;  
+  border: 1px solid #ccc;  
+}  
+  
+input[type="submit"] {  
+  background-color: #4CAF50;  
+  color: #fff;  
+  padding: 10px 20px;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+}  
+  
+input[type="submit"]:hover {  
+  background-color: #3e8e41;  
+}  
+  
+#update-form {  
+  display: none;  
+}  
+  
+#update-form.show {  
+  display: block;  
+}
+
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
